@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/7a1ef86793.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Login - Livraria Mágica</title>
+    <style>
+        body {
+            background-color: #fff3e0; /* Laranja bem clarinho para o fundo */
+        }
+        .login-container {
+            padding: 30px;
+            background-color: #f5d266; /* Cor laranja para a caixa do login */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px; /* Aumento do tamanho da caixa de login */
+        }
+        .logo {
+            width: 200px; /* Ajuste no tamanho da imagem */
+            height: auto;
+        }
+        .btn {
+            color: #fff;
+            background-color: #e69500;
+            border-color: #e69500;
+            box-shadow: none; 
+        }
+        .btn:hover {
+            color: #fff;
+            background-color: #cc8400; 
+            border-color: #cc8400;
+        }
+        .btn-info {
+            background-color: #b4904c;
+            border-color: #b4904c;
+        }
+        .btn-info:hover {
+            background-color: #b4904c; 
+            border-color: #b4904c;
+        }
+        .btn-success {
+            background-color: #976200; 
+            border-color: #976200;
+        }
+        .btn-success:hover {
+            background-color: #976200; 
+            border-color: #976200;
+        }
+        .form-signin .form-control:focus {
+            border-color: #e69500;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(230,149,0,.6);
+        }
+        footer {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <main class="d-flex align-items-center justify-content-center vh-100">
+        <div class="login-container text-center">
+            <img src="img/logo.png" alt="Logo da Livraria Mágica" class="logo mb-4">
+            
+            
+            <!-- Formulário de Login -->
+            <div id="loginForm">
+                <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+                <form class="form-signin" onsubmit="event.preventDefault(); login();">
+                    <div class="form-group">
+                        <input type="text" id="username" name="username" class="form-control" placeholder="Insira seu nome de usuário" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Insira sua senha" required>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+                    <button type="button" class="btn btn-lg btn-info btn-block" onclick="showRegister()">Cadastrar</button>
+                </form>
+            </div>
+            
+             <!-- Formulário de Cadastro -->
+             <div id="registerForm" style="display:none;">
+                <h1 class="h3 mb-3 font-weight-normal">Cadastrar</h1>
+                <form class="form-signin">
+                    <div class="form-group">
+                        <input type="text" id="fullName" class="form-control" placeholder="Nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" class="form-control" placeholder="E-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" class="form-control" placeholder="Telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="newUsername" class="form-control" placeholder="Nome de usuário" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="newPassword" class="form-control" placeholder="Senha" required>
+                    </div>
+                    <button type="button" class="btn btn-lg btn-success btn-block" onclick="register()">Registrar</button>
+                </form>
+            </div>
+            
+            <script>
+                function showRegister() {
+                    document.getElementById('loginForm').style.display = 'none';
+                    document.getElementById('registerForm').style.display = 'block';
+                }
+
+                function hideRegister() {
+                    document.getElementById('registerForm').style.display = 'none';
+                    document.getElementById('loginForm').style.display = 'block';
+                }
+
+                function login() {
+                    // Simula o login redirecionando para 'ainda.html'
+                    var username = document.getElementById('username').value;
+                    var password = document.getElementById('password').value;
+                    if(username && password) {
+                        window.location.href = 'index.html';
+                    }
+                }
+
+                function register() {
+                    // Simula o registro e mostra uma mensagem de sucesso
+                    var newUsername = document.getElementById('newUsername').value;
+                    var newPassword = document.getElementById('newPassword').value;
+                    if(newUsername && newPassword) {
+                        alert('Você foi cadastrado com sucesso!');
+                        hideRegister(); // Esconde o formulário de cadastro e mostra o de login
+                    }
+                }
+            </script>
+        </div>
+    </main>
+    <footer class="mt-auto text-white-50 text-center">
+        <p>&copy; 2023 Livraria Mágica</p>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
